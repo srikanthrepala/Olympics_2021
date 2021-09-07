@@ -58,14 +58,20 @@ var questions = [
     },
 ]
 
-for(i=0;i<questions.length;i++){
-  currentQuestion = questions[i]
-  abtolympics(currentQuestion.question,currentQuestion.answer)
+function quiz(){
+    for(i=0;i<questions.length;i++){
+    currentQuestion = questions[i]
+    abtolympics(currentQuestion.question,currentQuestion.answer)
+  }
 }
-console.log('your final score '+ chalk.bgMagenta(score));
+function showScores(){ 
+    console.log('your final score '+ chalk.bgMagenta(score));
+    for(i=0;i<highscores.length;i++){
+      var currentHighscore = highscores[i];
+      console.log('High scores are: '+(currentHighscore.name).toUpperCase(),currentHighscore.score);
+    }
+    console.log("let me know wether I should add your name in the list")
+  }
 
-for(i=0;i<highscores.length;i++){
-  var currentHighscore = highscores[i];
-  console.log('High scores are: '+(currentHighscore.name).toUpperCase(),currentHighscore.score);
-}
-console.log("let me know wether I should add your name in the list")
+  quiz();
+  showScores();
