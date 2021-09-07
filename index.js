@@ -2,6 +2,12 @@ var chalk = require("chalk");
 var readlineSync = require("readline-sync")
 var headline = 'All about Olympics 2021';
 console.log(chalk.bgCyan.bold.underline(headline));
+function welcome(){
+  var name = readlineSync.question('Enter your name:');
+  console.log("Welcome " + chalk.yellow(name.toUpperCase()));
+  console.log("Let's Play quiz about 2021 Olymics");
+  console.log("---------")
+}
 var score = 0;
 var highscores =[
   {
@@ -22,6 +28,7 @@ function abtolympics(question,answer){
     console.log(chalk.bgRed("Wrong"));
   }
   console.log('your current score: '+chalk.cyan(score));
+  console.log("-----")
 }
 var questions = [
     {
@@ -71,7 +78,7 @@ function showScores(){
       console.log('High scores are: '+(currentHighscore.name).toUpperCase(),currentHighscore.score);
     }
     console.log("let me know wether I should add your name in the list")
-  }
-
-  quiz();
-  showScores();
+}
+welcome();
+quiz();
+showScores();
